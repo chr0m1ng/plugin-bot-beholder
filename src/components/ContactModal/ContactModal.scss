@@ -1,0 +1,26 @@
+@import '../../globals';
+
+.keys-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.keys-area > div {
+    margin: 0 20px 10px;
+}
+
+.keys-area > div > * {
+    margin: 10px 0;
+}
+
+.keys-area li {
+    list-style: none;
+}
+
+.context-value-json-area {
+    margin-top: 10px;
+}
+
+.context-value-area > div > hr {
+    margin-bottom: 10px;
+}

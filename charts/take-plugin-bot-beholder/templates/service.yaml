@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "take-plugin-bot-beholder.fullname" . }}-{{ .Values.environment.stage }}
+  labels:
+    app: {{ template "take-plugin-bot-beholder.name" . }}
+    chart: {{ template "take-plugin-bot-beholder.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "take-plugin-bot-beholder.name" . }}
+    release: {{ .Release.Name }}
