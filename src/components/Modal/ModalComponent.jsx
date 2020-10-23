@@ -27,7 +27,7 @@ ModalComponent.propTypes = {
     show: PropTypes.bool.isRequired,
     close: PropTypes.func,
     title: PropTypes.string,
-    children: PropTypes.any
+    children: PropTypes.node
 };
 
 export default ModalComponent;
