@@ -85,7 +85,7 @@ ContactModal.propTypes = {
     closeModal: PropTypes.func.isRequired,
     context: PropTypes.arrayOf(PropTypes.string).isRequired,
     variable: PropTypes.object,
-    json_variable: PropTypes.object || PropTypes.array,
+    json_variable: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     getVariableValue: PropTypes.func.isRequired,
     contact_name: PropTypes.string.isRequired
 };
