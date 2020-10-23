@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
 import Modal from 'components/Modal';
 
-const ContactModal = ({
+const ContactDetailsModal = ({
     show,
     closeModal,
     contact,
@@ -79,7 +79,7 @@ const ContactModal = ({
     );
 };
 
-ContactModal.propTypes = {
+ContactDetailsModal.propTypes = {
     show: PropTypes.bool.isRequired,
     contact: PropTypes.object.isRequired,
     closeModal: PropTypes.func.isRequired,
@@ -90,4 +90,4 @@ ContactModal.propTypes = {
     contact_name: PropTypes.string.isRequired
 };
 
-export default ContactModal;
+export default ContactDetailsModal;

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { getVariableAsync, getContextAsync } from 'services/context-service';
 import { withLoading } from 'services/common-service';
 import { tryParseJsonObj } from 'helpers/object-helpers';
-import ContactModal from './ContactModal';
+import ContactDetailsModal from './ContactDetailsModal';
 
-const ContactModalContainer = ({ show, closeModal, contact }) => {
+const ContactDetailsModalContainer = ({ show, closeModal, contact }) => {
     const [context, setContext] = useState([]);
     const [variable, setVariable] = useState(null);
     const [json_variable, setJsonVariable] = useState(null);
@@ -27,7 +27,7 @@ const ContactModalContainer = ({ show, closeModal, contact }) => {
     };
 
     return (
-        <ContactModal
+        <ContactDetailsModal
             show={show}
             closeModal={closeModal}
             contact={contact}
@@ -40,10 +40,10 @@ const ContactModalContainer = ({ show, closeModal, contact }) => {
     );
 };
 
-ContactModalContainer.propTypes = {
+ContactDetailsModalContainer.propTypes = {
     show: PropTypes.bool.isRequired,
     closeModal: PropTypes.func.isRequired,
     contact: PropTypes.object.isRequired
 };
 
-export default ContactModalContainer;
+export default ContactDetailsModalContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ContactModal from 'components/ContactModal';
+import ContactDetailsModal from 'components/ContactDetailsModal';
 
 const ContactComponent = ({
     identity,
@@ -16,7 +16,7 @@ const ContactComponent = ({
                 <p>{contact && contact.name ? contact.name : identity}</p>
             </div>
             {show_contact_modal && (
-                <ContactModal
+                <ContactDetailsModal
                     show={show_contact_modal}
                     closeModal={destroyModal}
                     contact={contact}
