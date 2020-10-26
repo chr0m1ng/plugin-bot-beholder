@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStopwatch, faCommentDots } from '@fortawesome/free-solid-svg-icons';
 import Contact from 'components/Contact';
 import State from 'components/State';
 
@@ -9,17 +11,17 @@ const TraceComponent = ({ data }) => {
         <div className="trace">
             <header>
                 <div className="trace-header">
-                    <h1 className={data.is_error ? 'error' : ''}>
-                        <i className="far fa-comment-dots" /> {data.input}
+                    <h1 className={data.error ? 'error' : ''}>
+                        <FontAwesomeIcon icon={faCommentDots} /> {data.input}
                     </h1>
                     <span className="date">
                         {new Date(data.timestamp).toLocaleString()}
                     </span>
                 </div>
                 <p>
-                    <i className="fas fa-stopwatch" /> {data.elapsed_ms}ms
+                    <FontAwesomeIcon icon={faStopwatch} /> {data.elapsed_ms}ms
                 </p>
-                <Contact identity={data.identity} />
+                <Contact identity={data.user_identity} />
             </header>
             <div className="states">
                 {data.states.map((state) => (
@@ -38,10 +40,10 @@ TraceComponent.propTypes = {
     data: PropTypes.shape({
         input: PropTypes.string.isRequired,
         states: PropTypes.arrayOf(PropTypes.object).isRequired,
-        identity: PropTypes.string.isRequired,
-        is_error: PropTypes.bool.isRequired,
+        user_identity: PropTypes.string.isRequired,
+        error: PropTypes.object,
         timestamp: PropTypes.string.isRequired,
-        elapsed_ms: PropTypes.string.isRequired
+        elapsed_ms: PropTypes.number.isRequired
     }).isRequired
 };
 

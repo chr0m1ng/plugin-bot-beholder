@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const ModalComponent = ({ show, close, title, children }) => {
     return (
@@ -11,9 +13,10 @@ const ModalComponent = ({ show, close, title, children }) => {
                         e.stopPropagation();
                     }}
                 >
-                    <i
-                        className="fas fa-times right icon-btn delete"
+                    <FontAwesomeIcon
+                        icon={faTimes}
                         onClick={close}
+                        className="right icon-btn delete"
                     />
                     <h2>{title}</h2>
                     <div className="text">{children}</div>

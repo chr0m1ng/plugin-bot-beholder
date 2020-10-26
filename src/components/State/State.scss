@@ -11,13 +11,14 @@
     }
     .actions {
         visibility: hidden;
-        background-color: black;
+        background-color: $primary-light;
         color: #fff;
-        padding: 0;
+        padding: 10px;
         border-radius: 6px;
 
         /* Position the tooltip text - see examples below! */
         position: absolute;
+        width: 300px;
         margin-bottom: -30%;
         z-index: 1;
 
@@ -26,11 +27,11 @@
             padding-right: 10px;
             p {
                 position: relative;
-                left: -20px;
+                left: 5px;
             }
             li {
                 position: relative;
-                left: -5px;
+                left: 25px;
                 border-left: solid white;
                 padding-left: 5px;
                 &.error {
@@ -63,4 +64,39 @@
     &:last-child {
         padding-bottom: 30px;
     }
+
+    .state-name {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+button,
+.btn {
+    &.no-style {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+button:hover {
+    cursor: pointer;
+    &.no-style {
+        transform: scale(1.06);
+    }
+}
+
+button:focus {
+    &.no-style {
+        outline: 0;
+    }
+}
+
+.block {
+    border: $primary solid 1px;
+    min-height: 70px;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: white;
 }

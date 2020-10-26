@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
 import Modal from 'components/Modal';
 
-const StateDetailsComponent = (data, show, closeModal) => {
+const StateDetailsComponent = ({ data, show, closeModal }) => {
     return (
         <Modal
             show={show}

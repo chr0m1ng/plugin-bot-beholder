@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStopwatch, faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import StateDetailsModal from 'components/StateDetailsModal';
 
 const StateComponent = ({
@@ -12,17 +14,19 @@ const StateComponent = ({
     detroyDetailsModal
 }) => {
     return (
-        <div>
-            <div className={`state block ${data.is_error ? 'error' : ''}`}>
+        <>
+            <div className={`state block ${data.error ? 'error' : ''}`}>
                 <span className="date">
                     {new Date(data.timestamp).toLocaleString()}
                 </span>
-                <h1>{data.extension_data.name}</h1>
-                <button className="no-style" onClick={showDetailsModal}>
-                    <i className="fas fa-search-plus" />
-                </button>
+                <div className="state-name">
+                    <h1>{data.extension_data.name}</h1>
+                    <button className="no-style" onClick={showDetailsModal}>
+                        <FontAwesomeIcon icon={faSearchPlus} color="#738192" />
+                    </button>
+                </div>
                 <p className="elapsed-time" onMouseOver={onHover}>
-                    <i className="fas fa-stopwatch" /> {data.elapsed_ms}ms
+                    <FontAwesomeIcon icon={faStopwatch} /> {data.elapsed_ms}ms
                 </p>
                 <div
                     className="actions"
@@ -36,7 +40,7 @@ const StateComponent = ({
                                     key={idx}
                                     className={action.error ? 'error' : ''}
                                 >
-                                    {`${action.type} - ${action.elapsed_ms}ms`}
+                                    {`${action.type} - ${action.elapsedMilliseconds}ms`}
                                 </li>
                             ))}
                         </ul>
@@ -49,7 +53,7 @@ const StateComponent = ({
                                     key={idx}
                                     className={action.error ? 'error' : ''}
                                 >
-                                    {`${action.type} - ${action.elapsed_ms}ms`}
+                                    {`${action.type} - ${action.elapsedMilliseconds}ms`}
                                 </li>
                             ))}
                         </ul>
@@ -63,18 +67,20 @@ const StateComponent = ({
                     closeModal={detroyDetailsModal}
                 />
             )}
-        </div>
+        </>
     );
 };
 
 StateComponent.propTypes = {
-    mouse_x: PropTypes.number.isRequired,
-    mouse_y: PropTypes.number.isRequired,
+    mouse_x: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+    mouse_y: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
     data: PropTypes.shape({
-        is_error: PropTypes.bool.isRequired,
+        error: PropTypes.object,
         timestamp: PropTypes.string.isRequired,
         extension_data: PropTypes.object.isRequired,
-        elapsed_ms: PropTypes.string.isRequired,
+        elapsed_ms: PropTypes.number.isRequired,
         input_actions: PropTypes.arrayOf(PropTypes.object),
         output_actions: PropTypes.arrayOf(PropTypes.object)
     }).isRequired,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import StateComponent from './StateComponent';
 
-const StateContainer = (data) => {
+const StateContainer = ({ data }) => {
     const [mouse_x, setMouseX] = useState(0);
     const [mouse_y, setMouseY] = useState(0);
     const [show_state_details, setShowStateDetails] = useState(false);
@@ -33,10 +33,10 @@ const StateContainer = (data) => {
 
 StateContainer.propTypes = {
     data: PropTypes.shape({
-        is_error: PropTypes.bool.isRequired,
+        error: PropTypes.object,
         timestamp: PropTypes.string.isRequired,
         extension_data: PropTypes.object.isRequired,
-        elapsed_ms: PropTypes.string.isRequired,
+        elapsed_ms: PropTypes.number.isRequired,
         input_actions: PropTypes.arrayOf(PropTypes.object),
         output_actions: PropTypes.arrayOf(PropTypes.object)
     }).isRequired

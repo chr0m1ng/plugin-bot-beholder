@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import ContactDetailsModal from 'components/ContactDetailsModal';
 
 const ContactComponent = ({
@@ -12,8 +14,10 @@ const ContactComponent = ({
     return (
         <div>
             <div className="Contact" onClick={createModal}>
-                <i className="fas fa-user" />
-                <p>{contact && contact.name ? contact.name : identity}</p>
+                <p>
+                    <FontAwesomeIcon icon={faUser} />{' '}
+                    {contact && contact.name ? contact.name : identity}
+                </p>
             </div>
             {show_contact_modal && (
                 <ContactDetailsModal
