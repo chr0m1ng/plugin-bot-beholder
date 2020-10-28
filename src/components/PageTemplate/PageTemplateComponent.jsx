@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const PageTemplateComponent = ({ children }) => {
     return (
         <>
-            <div className="pv4">
-                <div className="bp-card bp-card--left-arrow">{children}</div>
+            <div className="bp-card bp-card--left-arrow page-template">
+                {children}
             </div>
         </>
     );
@@ -16,4 +16,4 @@ PageTemplateComponent.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-export { PageTemplateComponent };
+export default PageTemplateComponent;

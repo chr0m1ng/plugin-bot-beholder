@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import { PageHeader } from 'components/PageHeader';
-import { PageTemplate } from 'components/PageTemplate';
+import PageHeader from 'components/PageHeader';
+import PageTemplate from 'components/PageTemplate';
 import { CommonProvider } from 'contexts/CommonContext';
+import LogoSvg from 'static/images/logo.svg';
 import Trace from 'components/Trace';
 
 const AppComponent = ({
@@ -17,7 +18,11 @@ const AppComponent = ({
     return (
         <CommonProvider>
             <div id="main" className="App">
-                <PageHeader title={title} />
+                <PageHeader
+                    title={title}
+                    logo={LogoSvg}
+                    easter_egg="Who beholds the beholder?"
+                />
                 <PageTemplate title={title}>
                     <div id="tab-nav" className="bp-tabs-container">
                         <ul className="bp-tab-nav">

@@ -8,8 +8,8 @@ const StateContainer = ({ data }) => {
     const [show_state_details, setShowStateDetails] = useState(false);
 
     const onHover = (e) => {
-        const left = `${e.clientX + 20}px`;
-        const top = `${e.target.offsetTop + 20}px`;
+        const left = `${e.clientX}px`;
+        const top = `${e.target.offsetTop}px`;
         setMouseX(left);
         setMouseY(top);
     };

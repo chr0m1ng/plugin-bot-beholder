@@ -1,1 +1,4 @@
-export { PageHeaderComponent as PageHeader } from './PageHeaderComponent';
+import PageHeader from './PageHeaderComponent';
+import './PageHeader.scss';
+
+export default PageHeader;

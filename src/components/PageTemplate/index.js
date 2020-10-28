@@ -1,3 +1,4 @@
-import { PageTemplateComponent } from './PageTemplateComponent';
+import PageTemplate from './PageTemplateComponent';
+import './PageTemplate.scss';
 
-export { PageTemplateComponent as PageTemplate };
+export default PageTemplate;

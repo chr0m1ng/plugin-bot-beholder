@@ -13,7 +13,7 @@
         visibility: hidden;
         background-color: $primary-light;
         color: #fff;
-        padding: 10px;
+        padding: 0;
         border-radius: 6px;
 
         /* Position the tooltip text - see examples below! */
@@ -21,9 +21,11 @@
         width: 300px;
         margin-bottom: -30%;
         z-index: 1;
-        margin-left: -200px;
+        margin-left: -150px;
+        margin-top: 20px;
 
         ul {
+            margin: 10px;
             list-style: none;
             padding-right: 10px;
             p {
