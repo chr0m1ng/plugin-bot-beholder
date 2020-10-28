@@ -14,9 +14,6 @@ const TraceComponent = ({ data }) => {
                     <h1 className={data.error ? 'error' : ''}>
                         <FontAwesomeIcon icon={faCommentDots} /> {data.input}
                     </h1>
-                    <span className="date">
-                        {new Date(data.timestamp).toLocaleString()}
-                    </span>
                 </div>
                 <p>
                     <FontAwesomeIcon icon={faStopwatch} /> {data.elapsed_ms}ms
