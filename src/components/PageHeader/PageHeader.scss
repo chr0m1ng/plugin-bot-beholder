@@ -7,7 +7,8 @@
         #logo-img {
             animation: pulse infinite 0.8s linear;
         }
-        #easter-egg {
+
+        & ~ #easter-egg {
             visibility: visible;
         }
     }

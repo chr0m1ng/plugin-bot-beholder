@@ -4,27 +4,23 @@ import Proptypes from 'prop-types';
 const PageHeaderComponent = ({ title, logo, easter_egg }) => (
     <div className="header">
         <div className="dt dt--fixed">
-            <div className="dtc tl v-mid">
+            <div className="dtc tl v-mid w-90">
                 <h1 className="bp-fs-3 bp-c-city">{title}</h1>
             </div>
-            <div className="dtc">
-                <div id="logo-area" className="dt dt--fixed tr">
-                    <div className="dt-row">
+            <div className="dtc w-10">
+                <div className="dt dt--fixed">
+                    <div id="logo-area" className="dt-row tc">
                         {logo && (
                             <img
                                 id="logo-img"
-                                className="w-25 h-25"
+                                className="w-100 h-100"
                                 src={logo}
                                 alt="logo"
                             />
                         )}
                     </div>
-                    <div className="dt-row">
-                        {easter_egg && (
-                            <span id="easter-egg" className="tr">
-                                {easter_egg}
-                            </span>
-                        )}
+                    <div id="easter-egg" className="dt-row">
+                        {easter_egg && <span className="tr">{easter_egg}</span>}
                     </div>
                 </div>
             </div>
