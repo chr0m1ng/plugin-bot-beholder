@@ -13,7 +13,7 @@ const ContactComponent = ({
 }) => {
     return (
         <div>
-            <div className="Contact" onClick={createModal}>
+            <div className="contact" onClick={createModal}>
                 <p>
                     <FontAwesomeIcon icon={faUser} />{' '}
                     {contact && contact.name ? contact.name : identity}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getVariableAsync, getContextAsync } from 'services/context-service';
-import { withLoading } from 'services/common-service';
 import { tryParseJsonObj } from 'helpers/object-helpers';
 import ContactDetailsModal from './ContactDetailsModal';
 
@@ -12,12 +11,12 @@ const ContactDetailsModalContainer = ({ show, closeModal, contact }) => {
     const [contact_name, setContactName] = useState('Usuário');
 
     useEffect(() => {
-        withLoading(async () => {
+        (async () => {
             setContext(await getContextAsync(contact.identity));
             if (contact.name) {
                 setContactName(contact.name);
             }
-        });
+        })();
     }, [contact.identity, contact.name]);
 
     const getVariableValueAsync = async (key) => {

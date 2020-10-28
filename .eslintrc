@@ -13,7 +13,7 @@
         "node": true
     },
     "rules": {
-        "indent": ["error", 4, { "SwitchCase": 2 }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "no-console": "off",
         "camelcase": "off",
         "class-methods-use-this": "off",
