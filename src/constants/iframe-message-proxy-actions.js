@@ -22,6 +22,8 @@ class IframeMessageProxyActions {
     static has_permissions = 'hasPermissions';
 
     static get_permissions_object = 'getPermissionsObject';
+
+    static get_user_context = 'getUserContext';
 }
 
 export default IframeMessageProxyActions;

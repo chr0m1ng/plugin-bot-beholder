@@ -1,5 +1,5 @@
 import { showToast } from 'services/common-service';
-import { getApplication } from 'services/application-service';
+import { getApplicationAsync } from 'services/application-service';
 import PretSocketMethods from 'constants/pret-socket-methods';
 import BlipToastTypes from 'constants/blip-portal-toast-types';
 import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr';
@@ -21,7 +21,7 @@ pret_web_socket
             PretSocketMethods.send_command,
             PRET_PRIMARY_KEY,
             PRET_ADD_TRACE_ENDPOINT,
-            [(await getApplication()).shortName]
+            [(await getApplicationAsync()).shortName]
         );
     })
     .catch((error) => {

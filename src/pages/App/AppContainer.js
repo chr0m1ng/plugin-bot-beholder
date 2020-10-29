@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getApplication } from 'services/application-service';
+import { getApplicationAsync } from 'services/application-service';
 import { showToast, withLoading } from 'services/common-service';
 import { configureTracingAsync } from 'services/configuration-service';
 import BlipPortalToastTypes from 'constants/blip-portal-toast-types';
@@ -18,7 +18,7 @@ const AppContainer = () => {
 
     useEffect(() => {
         withLoading(async () => {
-            setApplication(await getApplication());
+            setApplication(await getApplicationAsync());
             // eslint-disable-next-line no-new
             new BlipTabs('tab-nav');
         });
@@ -67,7 +67,7 @@ const AppContainer = () => {
                 message: 'Configurando...'
             });
 
-            await configureTracingAsync(application.shortName);
+            await configureTracingAsync(application);
 
             showToast({
                 type: BlipPortalToastTypes.success,

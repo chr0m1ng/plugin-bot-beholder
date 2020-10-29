@@ -24,7 +24,8 @@
         "semi": ["error", "always"],
         "comma-dangle": ["error", "never"],
         "curly": ["error", "all"],
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "no-param-reassign": "off"
     },
     "settings": {
         "import/resolver": {
