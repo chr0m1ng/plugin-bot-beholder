@@ -15,6 +15,7 @@ const AppContainer = () => {
     const [application, setApplication] = useState({});
     const [traces, setTraces] = useState([]);
     const [filter, setFilter] = useState('');
+    const [is_configure_enabled, setIsConfigureEnabled] = useState(true);
 
     useEffect(() => {
         withLoading(async () => {
@@ -66,6 +67,7 @@ const AppContainer = () => {
                 type: BlipPortalToastTypes.info,
                 message: 'Configurando...'
             });
+            setIsConfigureEnabled(false);
 
             await configureTracingAsync(application);
 
@@ -79,6 +81,7 @@ const AppContainer = () => {
                 message: `Falha ao tentar configurar: ${error}`
             });
             console.error(error);
+            setIsConfigureEnabled(true);
         }
     };
 
@@ -89,6 +92,7 @@ const AppContainer = () => {
             filter={filter}
             changeFilter={changeFilter}
             traces={traces}
+            is_configure_enabled={is_configure_enabled}
         />
     );
 };

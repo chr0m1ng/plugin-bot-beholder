@@ -13,7 +13,8 @@ const AppComponent = ({
     configureBotTracing,
     filter,
     changeFilter,
-    traces
+    traces,
+    is_configure_enabled
 }) => {
     return (
         <CommonProvider>
@@ -45,6 +46,7 @@ const AppComponent = ({
                                     <button
                                         onClick={configureBotTracing}
                                         className="bp-btn bp-btn--bot bp-btn--small"
+                                        disabled={!is_configure_enabled}
                                     >
                                         Ativar tracing no bot
                                     </button>
@@ -98,7 +100,8 @@ AppComponent.propTypes = {
     configureBotTracing: PropTypes.func.isRequired,
     filter: PropTypes.string.isRequired,
     changeFilter: PropTypes.func.isRequired,
-    traces: PropTypes.arrayOf(PropTypes.object)
+    traces: PropTypes.arrayOf(PropTypes.object),
+    is_configure_enabled: PropTypes.bool.isRequired
 };
 
 export default AppComponent;
