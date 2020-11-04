@@ -9,7 +9,7 @@ const createAuthorizationKey = (identifier, access_key) => {
 const processCommandAsync = async (command, tenant, identifier, access_key) => {
     command.id = command.id || v4();
     const fixed_tenant = tenant === '' ? '' : `${tenant}.`;
-    const res = await fetch('/commands', {
+    const res = await fetch('/api/commands', {
         method: POST,
         headers: {
             'Content-Type': 'application/json',

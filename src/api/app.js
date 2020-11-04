@@ -10,6 +10,13 @@ import 'express-async-errors';
 const logger = logger_provider.getLogger();
 
 const app = express();
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+});
+
 app.use(body_parser.json());
 app.use(res_body_middleware);
 
