@@ -9,7 +9,6 @@ const createAuthorizationKey = (identifier, access_key) => {
 const processCommandAsync = async (command, tenant, identifier, access_key) => {
     command.id = command.id || v4();
     const fixed_tenant = tenant === '' ? '' : `${tenant}.`;
-    console.log(command);
     const res = await fetch('/commands', {
         method: POST,
         headers: {
