@@ -27,13 +27,14 @@ const getContextAsync = async (identity) => {
 
 const getVariableAsync = async (identity, variable) => {
     try {
+        const node = new Node(identity);
         const { response } = await IframeMessageProxy.sendMessage({
             action: IMPConstants.Actions.send_command,
             content: {
                 destination: IMPConstants.Destinations.messaging_hub_service,
                 command: {
                     method: IMPConstants.CommandMethods.GET,
-                    uri: `${BASE_URI}/${identity}/${variable}`
+                    uri: `${BASE_URI}/${node}/${variable}`
                 }
             }
         });
